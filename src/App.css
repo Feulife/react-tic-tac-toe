@@ -67,7 +67,7 @@ body {
 .square {
   background: #1b1b1b1b;
   border: 1px solid #999;
-  color: azure;
+  color: #2e8b57;
   float: left;
   font-size: 24px;
   font-weight: bold;
@@ -78,6 +78,7 @@ body {
   padding: 0;
   text-align: center;
   width: 34px;
+  cursor: pointer;
 }
 
 .board-row:after {
