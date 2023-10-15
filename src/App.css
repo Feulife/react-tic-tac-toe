@@ -81,6 +81,12 @@ body {
   cursor: pointer;
 }
 
+.boardStyle {
+ margin: 0 auto;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
 .board-row:after {
   clear: both;
   content: '';
@@ -90,6 +96,7 @@ body {
 .status {
   margin-bottom: 10px;
 }
+
 .game {
   display: flex;
   flex-direction: row;
@@ -97,6 +104,10 @@ body {
 
 .game-info {
   margin-left: 20px;
+}
+
+.renderButton {
+  cursor: pointer;
 }
 
 /* 
