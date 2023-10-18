@@ -7,4 +7,5 @@ const App = () => {
     <Game />
   )
 }
+
 export default App;

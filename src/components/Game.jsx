@@ -4,31 +4,41 @@ import calculateWinner from "./calculateWinner";
 
 const Game = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
+  let winner = null;
 
   // const [board, setBoard] = useState(Array.from(Array(9).keys()));
   const [xIsNext, setXisNext] = useState(true);
-  const winner = calculateWinner(board);
+  // const winner = calculateWinner(board);
   const huPlayer = "X";
   const aiPlayer = "O";
 
   const emptySquares = () => {
-    return board.filter(s => typeof s == "number")
+    return board.filter(s => typeof s === "number")
   }
 
   const handleClick = (i) => {
-    const boardCopy = [...board]
-
-    if (winner || boardCopy[i]) return
-    // boardCopy[i] = xIsNext ? "X" : "O";
-    boardCopy[i] = huPlayer;
-
+    const boardCopy = [...board];
+    if (typeof board[i] === 'number') {
+      boardCopy[i] = huPlayer;
     setBoard(boardCopy);
     setXisNext(!xIsNext);
+    }
+
+    let gameWinner = calculateWinner(board, huPlayer);
+    // if (winner || boardCopy[i]) return
+    // boardCopy[i] = xIsNext ? "X" : "O";
+    if (gameWinner) winner = gameWinner;
+
+    
     bestSpot(boardCopy, aiPlayer)
   }
 
+  // const step = () => {
+
+  // }
+
   const renderMoves = () => (
-    <button className="renderButton" onClick={() => setBoard(Array(9).keys())}>
+    <button className="renderButton" onClick={() => setBoard(Array(9).fill(null))}>
       Start Game
     </button>
   )
@@ -37,11 +47,11 @@ const Game = () => {
     let availSpots = emptySquares();
 
   // если при текущем расположении побеждает игрок
-  if (winner(squares, huPlayer)) {
+  if (calculateWinner(squares, huPlayer)) {
   	// отнимаем от результата 10 очков
   	return {score: -10};
   // если выиграет компьютер
-  } else if (winner(squares, aiPlayer)) {
+  } else if (calculateWinner(squares, aiPlayer)) {
   	// прибавляем 10 очков
   	return {score: 10};
   // если ничья, то не менеяем очки
