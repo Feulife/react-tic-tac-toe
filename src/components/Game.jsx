@@ -19,14 +19,14 @@ const Game = () => {
   }, [xIsNext])
 
   const makeMove = (i) => {
-    const boardCopy = [...board];    
+    const boardCopy = [...board];
     if (winner || boardCopy[i]) return
     boardCopy[i] = xIsNext ? huPlayer : aiPlayer;
     setBoard(boardCopy)
     setXisNext(!xIsNext)
   }
 
-  const handleClick = (i) => {    
+  const handleClick = (i) => {
     makeMove(i)
   }
 
@@ -65,7 +65,6 @@ const Game = () => {
         {renderMoves()}
       </div>
       <Board squares={board} onClick={handleClick} />
-
     </div>
   )
 }
