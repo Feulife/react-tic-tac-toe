@@ -1,3 +1,6 @@
+# react-tic-tac-toe
+The Tic-Tac-Toe games built on React with MiniMax algorithm
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
