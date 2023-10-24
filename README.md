@@ -1,4 +1,4 @@
-# react-tic-tac-toe
+# react-tic-tac-toe - the modified version of official Tic Tac Toe React toutorial
 The Tic-Tac-Toe games built on React with MiniMax algorithm
 
 # Getting Started with Create React App
